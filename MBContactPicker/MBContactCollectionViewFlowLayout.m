@@ -18,7 +18,7 @@
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
 {
-    NSArray* attributesToReturn = [super layoutAttributesForElementsInRect:rect];
+    NSArray* attributesToReturn = [[super layoutAttributesForElementsInRect:rect] copy];
 
     for (UICollectionViewLayoutAttributes* attributes in attributesToReturn)
     {
@@ -34,7 +34,7 @@
 
 - (UICollectionViewLayoutAttributes *)layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewLayoutAttributes* currentItemAttributes = [super layoutAttributesForItemAtIndexPath:indexPath];
+    UICollectionViewLayoutAttributes* currentItemAttributes = [[super layoutAttributesForItemAtIndexPath:indexPath] copy];
     
     UIEdgeInsets sectionInset = [(UICollectionViewFlowLayout *)self.collectionView.collectionViewLayout sectionInset];
     
